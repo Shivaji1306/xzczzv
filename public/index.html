@@ -1,0 +1,529 @@
+<!--  -->
+<!--  -->
+<!doctype html>
+<html lang="en" class="antialiased" data-theme="light">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:300,400,500,600,700&family=Merriweather:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="LushLeaf: Handcrafted artisanal teas, curated experiences, and mindful rituals to awaken your senses.">
+  <meta property="og:title" content="LushLeaf — Artisanal Teas & Rituals">
+  <meta property="og:description" content="Discover small-batch teas, immersive rituals, and wellbeing guides at LushLeaf.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1723478806245-cf0b12bc776b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw1fHxhJTIwc2VyZW5lJTIwdGVhJTIwZ2FyZGVuJTIwYXQlMjBzdW5yaXNlJTIwd2l0aCUyMHN0ZWFtJTIwcmlzaW5nJTIwZnJvbSUyMGElMjBjdXAlMkMlMjBjaW5lbWF0aWMlMkMlMjB3YXJtJTIwdG9uZXN8ZW58MHwwfHx8MTc1NTM0NzM3M3ww&ixlib=rb-4.1.0&q=80&w=1080">
+  <title>LushLeaf — Artisanal Teas & Rituals</title>
+
+  <!-- Tailwind Play CDN for ease (no build step). Uses tailwind classes directly. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lush: '#7CB17A',
+            amber: '#FFD166',
+            ink: '#0F172A'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'system-ui', 'sans-serif'],
+            serif: ['Merriweather', 'Georgia', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: 242 245 249; /* light HSL fallback as rgb components */
+      --glass: 255 255 255;
+      --text: 15 23 42;
+      --muted: 99 102 241;
+      --accent: 124 177 122; /* lush */
+    }
+    [data-theme='dark']{
+      --bg: 8 10 20;
+      --glass: 15 23 42;
+      --text: 226 232 240;
+      --muted: 168 85 247;
+      --accent: 124 177 122;
+    }
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(var(--accent),0.06), transparent), radial-gradient(1000px 500px at 95% 90%, rgba(255,209,102,0.04), transparent), rgb(var(--bg));
+      color: rgb(var(--text));
+      font-family: Poppins, system-ui, sans-serif;
+    }
+    /* glass card */
+    .glass { background: linear-gradient(135deg, rgba(var(--glass),0.06), rgba(var(--glass),0.02)); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.06); }
+
+    /* parallax hero image layering */
+    .parallax{ transform: translateZ(0); will-change: transform; }
+
+    /* reveal animations */
+    .reveal{ opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.9,.3,1); }
+    .reveal.show{ opacity: 1; transform: none; }
+
+    /* smooth scroll behavior fallback */
+    html { scroll-behavior: smooth; }
+  </style>
+
+</head>
+<body style="font-family: 'Poppins', sans-serif;" class="w-full max-w-none overflow-x-hidden text-[16px] leading-relaxed">
+
+  <!-- top nav -->
+  <header class="w-full fixed top-4 left-0 z-50 px-6">
+    <nav class="w-full flex items-center justify-between gap-4 glass rounded-full py-3 px-4 shadow-lg backdrop-blur-md">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="flex items-center gap-3 no-underline" aria-label="Go to LushLeaf home">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-lush to-amber flex items-center justify-center text-white font-bold">LL</div>
+        <div class="hidden md:block">
+          <h1 class="text-sm font-semibold">LushLeaf</h1>
+          <p class="text-xs text-slate-500">Artisanal Teas & Rituals</p>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#shop" class="nav-link text-sm text-slate-700 hover:text-lush">Shop</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="nav-link text-sm text-slate-700 hover:text-lush">About</a>
+        <a href="#rituals" class="nav-link text-sm text-slate-700 hover:text-lush">Rituals</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="nav-link text-sm text-slate-700 hover:text-lush">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="modeToggle" class="p-2 rounded-md glass" aria-label="Toggle dark mode">🌙</button>
+        <button id="menuBtn" class="md:hidden p-2 rounded-md glass" aria-expanded="false" aria-label="Open menu">☰</button>
+      </div>
+    </nav>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="hidden mt-3 glass rounded-xl p-4 shadow-lg">
+      <a href="#shop" class="block py-2">Shop</a>
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="block py-2">About</a>
+      <a href="#rituals" class="block py-2">Rituals</a>
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="block py-2">Contact</a>
+    </div>
+  </header>
+
+  <main class="w-full max-w-none mt-28">
+    <!-- Hero -->
+    <section id="home" class="w-full relative overflow-hidden py-24 px-6 md:px-12">
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="reveal" data-delay="0">
+          <div class="glass p-6 rounded-2xl shadow-2xl">
+            <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">Sip Slowly. Live Fully.</h2>
+            <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-prose">At LushLeaf, we handcraft small-batch teas and rituals that reconnect you to a richer, calmer life. From misty mountain greens to smoky evening blends — every cup tells a story.</p>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#shop" class="btn-cta inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-lush to-amber text-white shadow-lg transform transition hover:scale-[1.02]">Shop Bestsellers</a>
+              <a href="#quiz" class="inline-flex items-center gap-2 px-5 py-3 rounded-full glass">Find Your Tea</a>
+            </div>
+
+            <div class="mt-6 flex gap-4 items-center">
+              <div class="flex items-center gap-3">
+                <img src="https://images.pexels.com/photos/7615806/pexels-photo-7615806.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="tea tin" loading="lazy" class="w-16 h-16 object-cover rounded-lg shadow" />
+                <div>
+                  <p class="text-sm font-semibold">Small-batch & traceable</p>
+                  <p class="text-xs text-slate-500">From farm to cup with love.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="relative parallax" style="min-height:360px">
+          <div class="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://pixabay.com/get/g3d28610da754ecee0023809ab8dd43e7609ca3a5f64e337e68adce1258a8afafbe862a2905803dd32e7347925ee46764b9ff1429c4f7e27c5b96306c75669019_640.jpg" alt="Steaming cup of tea" loading="lazy" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="w-full px-6 md:px-12 py-12">
+      <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="glass p-6 rounded-xl reveal" data-delay="100">
+          <h3 class="font-semibold">Single-Origin Purity</h3>
+          <p class="text-sm mt-2 text-slate-600">We partner with growers using regenerative practices to bring you transparent, vivid flavor.</p>
+        </article>
+        <article class="glass p-6 rounded-xl reveal" data-delay="200">
+          <h3 class="font-semibold">Custom Rituals</h3>
+          <p class="text-sm mt-2 text-slate-600">Guided rituals for morning focus, afternoon calm, and evening rest — crafted by tea sommeliers.</p>
+        </article>
+        <article class="glass p-6 rounded-xl reveal" data-delay="300">
+          <h3 class="font-semibold">Satisfaction Guaranteed</h3>
+          <p class="text-sm mt-2 text-slate-600">Love your first cup or we’ll make it right. Trusted by thousands of mindful sippers.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Shop / Products gallery slider -->
+    <section id="shop" class="w-full px-6 md:px-12 py-12">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-bold">Bestsellers</h2>
+        <div class="text-sm text-slate-500">Curated for everyday rituals</div>
+      </div>
+
+      <div class="mt-6 relative">
+        <div id="productSlider" class="w-full flex gap-6 overflow-x-auto py-6 px-2 scrollbar-hide">
+          <!-- slide items -->
+          <article class="min-w-[320px] glass rounded-2xl p-4 shadow-lg shrink-0 reveal" data-delay="0">
+            <img data-src="https://pixabay.com/get/gcb97d11a17d70582c886da0f0b2141b6adfef7c36977e982981b7f0630f4eb15cb0ce4c94a1f7ff9e7c56e160bf43a43_640.jpg" alt="Emerald Dawn" class="w-full h-44 object-cover rounded-lg lazy-img" loading="lazy">
+            <h4 class="mt-4 font-semibold">Emerald Dawn</h4>
+            <p class="text-sm text-slate-600">Bright mountain green with sweet floral notes. Perfect for slow mornings.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-lg font-bold">$16</div>
+              <div>
+                <button class="addCart px-4 py-2 rounded-full bg-lush text-white text-sm" data-name="Emerald Dawn">Quick View</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="min-w-[320px] glass rounded-2xl p-4 shadow-lg shrink-0 reveal" data-delay="100">
+            <img data-src="https://images.pexels.com/photos/24186410/pexels-photo-24186410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Smoked Ember" class="w-full h-44 object-cover rounded-lg lazy-img" loading="lazy">
+            <h4 class="mt-4 font-semibold">Smoked Ember</h4>
+            <p class="text-sm text-slate-600">Deep, complex, with warm roasted finish — an evening ritual favorite.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-lg font-bold">$18</div>
+              <div>
+                <button class="addCart px-4 py-2 rounded-full bg-lush text-white text-sm" data-name="Smoked Ember">Quick View</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="min-w-[320px] glass rounded-2xl p-4 shadow-lg shrink-0 reveal" data-delay="200">
+            <img data-src="https://images.unsplash.com/photo-1629587424614-3faadb88b487?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHwxfHxoZXJiYWwlMjB0ZWElMjBibGVuZCUyMHdpdGglMjBkcmllZCUyMGZsb3dlcnMlMjBhbmQlMjBoZXJic3xlbnwwfDB8fHwxNzU1MzQ3Mzc2fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Herbal Reverie" class="w-full h-44 object-cover rounded-lg lazy-img" loading="lazy">
+            <h4 class="mt-4 font-semibold">Herbal Reverie</h4>
+            <p class="text-sm text-slate-600">Caffeine-free, calming blend for restful evenings and mindful pauses.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-lg font-bold">$14</div>
+              <div>
+                <button class="addCart px-4 py-2 rounded-full bg-lush text-white text-sm" data-name="Herbal Reverie">Quick View</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="absolute -left-2 top-1/2 -translate-y-1/2">
+          <button id="prevBtn" class="glass p-3 rounded-full shadow">‹</button>
+        </div>
+        <div class="absolute -right-2 top-1/2 -translate-y-1/2">
+          <button id="nextBtn" class="glass p-3 rounded-full shadow">›</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Testimonials & Social Proof -->
+    <section id="testimonials" class="w-full px-6 md:px-12 py-12">
+      <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass p-6 rounded-xl reveal" data-delay="0">
+          <p class="text-lg italic">"LushLeaf reintroduced me to the ritual of tea. Each cup is a moment I look forward to."</p>
+          <div class="mt-4 flex items-center gap-3">
+            <img src="https://images.pexels.com/photos/7162253/pexels-photo-7162253.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Customer" class="w-12 h-12 rounded-full object-cover shadow" loading="lazy">
+            <div>
+              <div class="font-semibold">Maya R.</div>
+              <div class="text-xs text-slate-500">Verified buyer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass p-6 rounded-xl reveal" data-delay="100">
+          <h3 class="font-semibold">As featured in</h3>
+          <div class="mt-4 flex items-center gap-4">
+            <div class="glass p-3 rounded-md">Wellness Weekly</div>
+            <div class="glass p-3 rounded-md">Sips & Stories</div>
+            <div class="glass p-3 rounded-md">Green Living</div>
+          </div>
+        </div>
+
+        <div class="glass p-6 rounded-xl reveal" data-delay="200">
+          <h3 class="font-semibold">Trust & Transparency</h3>
+          <p class="text-sm text-slate-600 mt-2">Lab-tested, ethically sourced, and fully traceable — every batch comes with provenance details.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rituals / How it works with progress/gamification quiz -->
+    <section id="rituals" class="w-full px-6 md:px-12 py-12">
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="glass p-6 rounded-2xl reveal" data-delay="0">
+          <h3 class="text-2xl font-bold">Your Personalized Ritual</h3>
+          <p class="mt-2 text-slate-600">Take our quick ritual quiz and unlock a curated ritual kit and 10% off your first ritual box.</p>
+
+          <div id="quiz" class="mt-4">
+            <div class="mb-3 text-sm text-slate-500">Progress</div>
+            <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
+              <div id="quizProgress" class="h-3 bg-lush w-0 rounded-full transition-all"></div>
+            </div>
+
+            <div class="mt-6">
+              <div id="qContainer">
+                <div class="qStep reveal" data-step="1">
+                  <p class="font-semibold">When do you drink tea most?</p>
+                  <div class="mt-3 flex gap-3 flex-wrap">
+                    <button class="qBtn glass px-4 py-2 rounded-full" data-answer="Morning">Morning</button>
+                    <button class="qBtn glass px-4 py-2 rounded-full" data-answer="Afternoon">Afternoon</button>
+                    <button class="qBtn glass px-4 py-2 rounded-full" data-answer="Evening">Evening</button>
+                  </div>
+                </div>
+                <div class="qStep hidden" data-step="2">
+                  <p class="font-semibold">Choose a flavor profile</p>
+                  <div class="mt-3 flex gap-3 flex-wrap">
+                    <button class="qBtn glass px-4 py-2 rounded-full" data-answer="Floral">Floral</button>
+                    <button class="qBtn glass px-4 py-2 rounded-full" data-answer="Smoky">Smoky</button>
+                    <button class="qBtn glass px-4 py-2 rounded-full" data-answer="Herbal">Herbal</button>
+                  </div>
+                </div>
+                <div class="qStep hidden" data-step="3">
+                  <p class="font-semibold">Preferred ritual length</p>
+                  <div class="mt-3 flex gap-3 flex-wrap">
+                    <button class="qBtn glass px-4 py-2 rounded-full" data-answer="Quick 5 min">Quick 5 min</button>
+                    <button class="qBtn glass px-4 py-2 rounded-full" data-answer="Slow 20 min">Slow 20 min</button>
+                    <button class="qBtn glass px-4 py-2 rounded-full" data-answer="Ceremony 45+ min">Ceremony 45+ min</button>
+                  </div>
+                </div>
+              </div>
+
+              <div id="quizResult" class="mt-6 hidden glass p-4 rounded-lg">
+                <h4 class="font-semibold">Your Ritual Match</h4>
+                <p id="resultText" class="mt-2 text-slate-600"></p>
+                <div class="mt-4">
+                  <a href="#shop" class="px-4 py-2 rounded-full bg-amber text-ink">Shop Your Ritual Bundle</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="glass p-6 rounded-2xl reveal" data-delay="100">
+          <h3 class="text-2xl font-bold">How We Source</h3>
+          <p class="mt-2 text-slate-600">We visit our partners each season, sampling at altitude and picking the finest leaves. Our relationships are multi-year and built on fair pay and regenerative practices.</p>
+
+          <div class="mt-6">
+            <div class="w-full bg-slate-100 rounded-xl p-4">
+              <p class="text-sm text-slate-600">Traceability</p>
+              <div class="mt-2 text-xs text-slate-500">Batch #LL-2025-07 • Grown in Yunnan • Harvest: Spring Flush</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ accordion -->
+    <section id="faq" class="w-full px-6 md:px-12 py-12">
+      <h3 class="text-2xl font-bold">FAQ</h3>
+      <div class="mt-6 space-y-3">
+        <div class="glass p-4 rounded-lg">
+          <button class="w-full text-left faqBtn flex items-center justify-between" aria-expanded="false">What is your return policy? <span>+</span></button>
+          <div class="faqPanel hidden mt-3 text-sm text-slate-600">If you’re not satisfied, contact us within 14 days and we’ll refund or replace your purchase.</div>
+        </div>
+        <div class="glass p-4 rounded-lg">
+          <button class="w-full text-left faqBtn flex items-center justify-between" aria-expanded="false">Are blends organic? <span>+</span></button>
+          <div class="faqPanel hidden mt-3 text-sm text-slate-600">Some single-origin lots are certified organic; others follow organic practices without certification. We list this on each product page.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / Newsletter -->
+    <section id="subscribe" class="w-full px-6 md:px-12 py-12">
+      <div class="glass p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-2xl font-bold">Join the Leaf Circle</h3>
+          <p class="text-slate-600 mt-2">Early access to limited releases, rituals, and tasting notes.</p>
+        </div>
+        <form id="subscribeForm" class="w-full md:w-1/2 flex gap-3" novalidate>
+          <input type="email" name="email" placeholder="you@domain.com" required aria-label="Email address" class="flex-1 px-4 py-3 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-lush" />
+          <button type="submit" class="px-5 py-3 rounded-full bg-lush text-white">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full px-6 md:px-12 py-8">
+      <div class="w-full glass p-6 rounded-xl flex flex-col md:flex-row items-start justify-between gap-6">
+        <div>
+          <h4 class="font-bold">LushLeaf</h4>
+          <p class="text-sm text-slate-600 mt-2">Handcrafted teas & mindful rituals since 2018.</p>
+        </div>
+        <nav class="flex gap-4">
+          <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="text-sm">About</a>
+          <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="text-sm">Contact</a>
+          <a href="#" class="text-sm">Privacy</a>
+        </nav>
+        <div class="text-sm text-slate-500">© 2025 LushLeaf — All rights reserved</div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Modal quick view -->
+  <div id="modal" class="fixed inset-0 hidden z-50 items-center justify-center bg-black/50 p-6" role="dialog" aria-modal="true">
+    <div class="w-full max-w-3xl glass rounded-2xl p-6">
+      <button id="closeModal" class="ml-auto block">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // Utility helpers
+    const qs = s => document.querySelector(s);
+    const qsa = s => document.querySelectorAll(s);
+
+    // Dark/Light mode
+    const root = document.documentElement;
+    const modeToggle = qs('#modeToggle');
+    const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    modeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    modeToggle.addEventListener('click', () => {
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      modeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    });
+
+    // Mobile menu
+    const menuBtn = qs('#menuBtn');
+    const mobileMenu = qs('#mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const opened = mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!opened));
+    });
+
+    // Reveal on scroll
+    const revealEls = qsa('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          obs.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.12});
+    revealEls.forEach(el => obs.observe(el));
+
+    // Parallax hero
+    window.addEventListener('scroll', () => {
+      const p = document.querySelector('.parallax');
+      if (!p) return;
+      const sc = window.scrollY;
+      p.style.transform = `translateY(${sc * -0.05}px)`;
+    });
+
+    // Carousel controls
+    const slider = qs('#productSlider');
+    const prevBtn = qs('#prevBtn');
+    const nextBtn = qs('#nextBtn');
+    prevBtn.addEventListener('click', () => slider.scrollBy({left: -340, behavior: 'smooth'}));
+    nextBtn.addEventListener('click', () => slider.scrollBy({left: 340, behavior: 'smooth'}));
+
+    // Lazy-load images in slider (simple)
+    const lazyImgs = qsa('.lazy-img');
+    lazyImgs.forEach(img => {
+      const src = img.getAttribute('data-src');
+      if (src){ img.src = src; img.removeAttribute('data-src'); }
+    });
+
+    // Modal quick view
+    const modal = qs('#modal');
+    const modalContent = qs('#modalContent');
+    const closeModal = qs('#closeModal');
+    qsa('.addCart').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const name = e.currentTarget.dataset.name;
+        modalContent.innerHTML = `<div class=\"grid grid-cols-1 md:grid-cols-2 gap-4\"><img src=\"https://images.unsplash.com/photo-1612285761051-d5eef9e88e86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw1fHxwcm9kdWN0JTIwc2hvdCUzQSUyMGVsZWdhbnQlMjB0ZWElMjBwYWNrYWdpbmclMjBhbmQlMjBhJTIwY3VwJTIwd2l0aCUyMHN0ZWFtfGVufDB8MHx8fDE3NTUzNDczNzh8MA&ixlib=rb-4.1.0&q=80&w=1080\" class=\"w-full h-48 object-cover rounded-lg\" alt=\"${name}\"><div><h3 class=\"text-xl font-bold\">${name}</h3><p class=\"mt-2 text-slate-600\">A thoughtfully crafted tea chosen for your ritual.</p><div class=\"mt-4\"><button id=\"addToCartConfirm\" class=\"px-4 py-2 rounded-full bg-amber text-ink\">Add to Bag — $18</button></div></div></div>`;
+        modal.classList.remove('hidden');
+      });
+    });
+    closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+
+    // FAQ accordion
+    qsa('.faqBtn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panel = btn.nextElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        panel.classList.toggle('hidden');
+      });
+    });
+
+    // Subscribe form validation & skeleton success
+    const subscribeForm = qs('#subscribeForm');
+    subscribeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = subscribeForm.email.value.trim();
+      const re = /^\S+@\S+\.\S+$/;
+      if (!re.test(email)){
+        alert('Please provide a valid email address.');
+        return;
+      }
+      // micro-interaction: show skeleton loader
+      const btn = subscribeForm.querySelector('button');
+      const old = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = 'Sending...';
+      setTimeout(()=>{
+        btn.innerHTML = old;
+        btn.disabled = false;
+        subscribeForm.reset();
+        alert('Welcome to the Leaf Circle — check your inbox for a welcome ritual!');
+      }, 1200);
+    });
+
+    // Quiz logic & progress
+    const qBtns = qsa('.qBtn');
+    const qSteps = qsa('.qStep');
+    let qIndex = 0;
+    const answers = [];
+    const progress = qs('#quizProgress');
+    function updateProgress(){
+      const pct = Math.round((qIndex / qSteps.length) * 100);
+      progress.style.width = pct + '%';
+    }
+    qBtns.forEach(btn => btn.addEventListener('click', (e) => {
+      const ans = e.currentTarget.dataset.answer;
+      answers.push(ans);
+      qSteps[qIndex].classList.add('hidden');
+      qIndex++;
+      if (qIndex < qSteps.length){
+        qSteps[qIndex].classList.remove('hidden');
+      } else {
+        // show result
+        const resultEl = qs('#quizResult');
+        const text = `You love ${answers.join(' · ')} — we recommend the "Herbal Reverie" ritual kit for mindful nightly rituals.`;
+        qs('#resultText').textContent = text;
+        resultEl.classList.remove('hidden');
+      }
+      updateProgress();
+    }));
+
+    // Smooth nav active highlight
+    const navLinks = qsa('.nav-link');
+    const sections = [qs('#home'), qs('#shop'), qs('#rituals')];
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY + 200;
+      navLinks.forEach(link => link.classList.remove('text-lush'));
+      sections.forEach(sec => {
+        if (!sec) return;
+        const id = sec.id;
+        if (sec.offsetTop <= y && sec.offsetTop + sec.offsetHeight > y){
+          const link = Array.from(navLinks).find(l => l.getAttribute('href') === '#' + id);
+          if (link) link.classList.add('text-lush');
+        }
+      });
+    });
+
+    // Keyboard accessibility for modal: close on Esc
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') modal.classList.add('hidden'); });
+
+  </script>
+
+</body>
+</html>
