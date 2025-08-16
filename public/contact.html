@@ -1,0 +1,98 @@
+<!--  -->
+<!--  -->
+<!doctype html>
+<html lang="en" class="antialiased" data-theme="light">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:300,400,500,600,700&family=Merriweather:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Contact LushLeaf — customer support, wholesale inquiries, and press.">
+  <title>Contact — LushLeaf</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body{ font-family: Poppins, sans-serif; }
+  </style>
+</head>
+<body style="font-family: 'Poppins', sans-serif;" class="w-full max-w-none">
+  <header class="w-full p-6 flex items-center justify-between glass">
+    <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-lush to-amber text-white flex items-center justify-center">LL</div><div class="hidden md:block"><h1 class="font-bold">LushLeaf</h1></div></a>
+    <nav class="flex gap-4">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="text-sm">Home</a>
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="text-sm">About</a>
+    </nav>
+  </header>
+
+  <main class="w-full px-6 md:px-12 py-12">
+    <section class="glass p-8 rounded-2xl">
+      <h2 class="text-2xl font-bold">Get in Touch</h2>
+      <p class="mt-2 text-slate-600">We’d love to hear from you — whether it’s feedback, wholesale inquiries, or a ritual story.</p>
+
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form id="contactForm" class="glass p-6 rounded-lg" novalidate>
+          <label class="block text-sm font-medium">Your name</label>
+          <input name="name" required class="w-full mt-2 p-3 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-lush" />
+
+          <label class="block text-sm font-medium mt-4">Email</label>
+          <input name="email" type="email" required class="w-full mt-2 p-3 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-lush" />
+
+          <label class="block text-sm font-medium mt-4">Message</label>
+          <textarea name="message" rows="6" required class="w-full mt-2 p-3 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-lush"></textarea>
+
+          <div class="mt-4 flex items-center gap-3">
+            <button type="submit" class="px-4 py-2 rounded-full bg-lush text-white">Send Message</button>
+            <div id="contactStatus" aria-live="polite" class="text-sm text-slate-500"></div>
+          </div>
+        </form>
+
+        <div class="glass p-6 rounded-lg">
+          <h3 class="font-semibold">Visit Us</h3>
+          <p class="text-sm text-slate-600 mt-2">Pop by our tasting room by appointment — we host small ceremonies and workshops monthly.</p>
+          <div class="mt-4 text-sm">
+            <div class="font-semibold">Email</div>
+            <div class="text-slate-500">hello@lushleaf.example</div>
+            <div class="mt-3 font-semibold">Wholesale</div>
+            <div class="text-slate-500">wholesale@lushleaf.example</div>
+          </div>
+
+          <div class="mt-6">
+            <h4 class="font-semibold">Social</h4>
+            <div class="mt-3 flex gap-3">
+              <a class="glass p-2 rounded-md">Instagram</a>
+              <a class="glass p-2 rounded-md">Pinterest</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full p-6 glass text-sm">
+    <div class="flex justify-between items-center">
+      <div>© 2025 LushLeaf</div>
+      <nav class="flex gap-4"><a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;">Home</a><a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;">About</a></nav>
+    </div>
+  </footer>
+
+  <script>
+    const contactForm = document.getElementById('contactForm');
+    const status = document.getElementById('contactStatus');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const name = formData.get('name').trim();
+      const email = formData.get('email').trim();
+      const message = formData.get('message').trim();
+      if (!name || !email || !message) { status.textContent = 'Please complete all fields.'; return; }
+      // Simple validation, then fake send
+      status.textContent = 'Sending...';
+      setTimeout(()=>{
+        status.textContent = 'Thanks! We’ll get back to you within 2 business days.';
+        contactForm.reset();
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
