@@ -1,0 +1,86 @@
+<!--  -->
+<!--  -->
+<!doctype html>
+<html lang="en" class="antialiased" data-theme="light">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:300,400,500,600,700&family=Merriweather:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="About LushLeaf: Our story, values, and small-batch sourcing of artisanal teas.">
+  <title>About — LushLeaf</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg: 242 245 249; --text: 15 23 42; }
+    [data-theme='dark']{ --bg: 8 10 20; --text: 226 232 240; }
+    body{ background: rgb(var(--bg)); color: rgb(var(--text)); font-family: Poppins, sans-serif; }
+  </style>
+</head>
+<body style="font-family: 'Poppins', sans-serif;" class="w-full max-w-none">
+  <header class="w-full p-6 flex items-center justify-between glass">
+    <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-lush to-amber text-white flex items-center justify-center">LL</div><div class="hidden md:block"><h1 class="font-bold">LushLeaf</h1></div></a>
+    <nav class="flex gap-4">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="text-sm">Home</a>
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="text-sm">Contact</a>
+    </nav>
+  </header>
+
+  <main class="w-full px-6 md:px-12 py-12">
+    <section class="glass p-8 rounded-2xl">
+      <h2 class="text-3xl font-extrabold">Our Story</h2>
+      <p class="mt-4 text-slate-600">We started as a small kitchen table project in 2018. What began as a search for mindful moments turned into a mission: to bring thoughtfully sourced, small-batch teas and rituals to people who want more presence in their day.</p>
+
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <img src="https://pixabay.com/get/g95aaf6006f2da8c2430d19d522650a2e90e3464b59a8bcb4b49258c3481a7207f01ed784b642a048b38630ace1bd3565845f89dceb7c9670d86f9fab5ab86400_640.jpg" alt="Founders in garden" class="w-full h-64 object-cover">
+        </div>
+        <div>
+          <h3 class="font-semibold">Our Values</h3>
+          <ul class="mt-3 list-disc pl-5 text-slate-600">
+            <li>Regenerative sourcing</li>
+            <li>Transparent partnerships</li>
+            <li>Mindful rituals over mindless consumption</li>
+          </ul>
+          <p class="mt-4 text-sm text-slate-500">We visit our partner farms each season, tasting with producers and building multi-year relationships that ensure fair pay and environmental care.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8 glass p-6 rounded-2xl">
+      <h3 class="text-2xl font-bold">Meet the Team</h3>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-4 rounded-lg">
+          <img src="https://images.pexels.com/photos/6549835/pexels-photo-6549835.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Team" class="w-full h-44 object-cover rounded-lg">
+          <h4 class="mt-3 font-semibold">Asha Kumar</h4>
+          <p class="text-sm text-slate-600">Chief Taster & Founder</p>
+        </div>
+        <div class="p-4 rounded-lg">
+          <img src="https://images.unsplash.com/photo-1746640546704-74e784dcd986?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHwzfHxwb3J0cmFpdCUyMG9mJTIwYSUyMGZyaWVuZGx5JTIwb3BlcmF0aW9ucyUyMG1hbmFnZXJ8ZW58MHwwfHx8MTc1NTM0NzM4MHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Team" class="w-full h-44 object-cover rounded-lg">
+          <h4 class="mt-3 font-semibold">Liam Chen</h4>
+          <p class="text-sm text-slate-600">Sourcing & Logistics</p>
+        </div>
+        <div class="p-4 rounded-lg">
+          <img src="https://images.pexels.com/photos/6896321/pexels-photo-6896321.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Team" class="w-full h-44 object-cover rounded-lg">
+          <h4 class="mt-3 font-semibold">Sofia Reyes</h4>
+          <p class="text-sm text-slate-600">Design & Ritual Curation</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8 glass p-6 rounded-2xl">
+      <h3 class="text-2xl font-bold">Sustainability</h3>
+      <p class="mt-2 text-slate-600">We use compostable packaging when possible, minimize single-use plastics, and offset shipment emissions for orders over a threshold. Transparency is paramount — every batch page includes farm details and harvest notes.</p>
+    </section>
+  </main>
+
+  <footer class="w-full p-6 glass text-sm">
+    <div class="flex justify-between items-center">
+      <div>© 2025 LushLeaf</div>
+      <nav class="flex gap-4"><a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;">Home</a><a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;">Contact</a></nav>
+    </div>
+  </footer>
+
+</body>
+</html>
