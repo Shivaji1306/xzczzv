@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: lushleaf-website
+    env: node
+    plan: free
+    buildCommand: ''
+    startCommand: 'npm start'
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true
